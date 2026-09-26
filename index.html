@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Chess Master for Kidz — Getting Started | Nalkudil Studio</title><link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Chess Master for Kidz — Getting Started | Nalkudil Studio</title><link rel="icon" type="image/svg+xml" href="favicon.svg"/><link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/><style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --teal:  #1DBFB0; --gold: #E8A83A; --navy: #0D1B2A; --navy2: #112233;
@@ -103,33 +103,49 @@
     }
     .section-sub { color: var(--muted); font-size: 15px; max-width: 480px; margin-bottom: 44px; }
 
-    /* steps */
-    .steps-grid { display: grid; gap: 16px; }
+    /* steps 3-column parallel grid (Spouse Design Standard) */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
     .step-card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 32px;
-      display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start;
+      border-radius: 16px; padding: 28px;
+      position: relative; transition: border-color 0.2s, transform 0.2s;
     }
+    .step-card:hover { border-color: rgba(29,191,176,0.3); transform: translateY(-2px); }
     .step-num {
-      width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0;
-      background: rgba(29,191,176,0.08); border: 1px solid rgba(29,191,176,0.25);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Chakra Petch', sans-serif; font-size: 13px;
-      font-weight: 700; color: var(--teal);
+      font-family: 'Chakra Petch', sans-serif; font-size: 48px; font-weight: 700;
+      color: var(--teal); opacity: 0.15; position: absolute; top: 16px; right: 20px; line-height: 1;
     }
-    .step-body h3 {
+    .step-icon { font-size: 32px; margin-bottom: 14px; }
+    .step-card h3 {
       font-family: 'Chakra Petch', sans-serif; font-size: 16px; font-weight: 700;
-      margin-bottom: 6px; color: var(--text);
+      margin-bottom: 10px; color: var(--text);
     }
-    .step-body p { color: var(--muted); font-size: 14px; margin-bottom: 14px; line-height: 1.65; }
-    .step-body ul { list-style: none; }
-    .step-body ul li {
-      font-size: 13px; color: var(--muted); padding: 4px 0 4px 18px;
+    .step-card p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 12px; }
+    .step-card ul { list-style: none; margin-top: 10px; }
+    .step-card ul li {
+      font-size: 13px; color: var(--muted); padding: 4px 0 4px 16px;
       position: relative; line-height: 1.55;
     }
-    .step-body ul li::before {
-      content: '→'; position: absolute; left: 0; color: var(--teal); font-size: 11px; top: 5px;
+    .step-card ul li::before {
+      content: '▸'; position: absolute; left: 0; color: var(--teal); font-size: 10px; top: 6px;
     }
+
+    /* Co-Create Roadmap CTA */
+    .cocreate {
+      background: linear-gradient(135deg, rgba(29,191,176,0.06), rgba(232,168,58,0.04));
+      border: 1px solid rgba(29,191,176,0.25); border-radius: 20px; padding: 48px 36px; text-align: center;
+    }
+    .cocreate-label { font-family: 'Chakra Petch', sans-serif; font-size: 11px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+    .cocreate h2 { font-family: 'Chakra Petch', sans-serif; font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; margin-bottom: 14px; }
+    .cocreate > p { color: var(--muted); font-size: 15px; max-width: 580px; margin: 0 auto 32px; line-height: 1.7; }
+    .cocreate-steps { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .cocreate-step { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 8px 16px; font-size: 13px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .cocreate-step span { color: var(--teal); font-family: 'Chakra Petch', sans-serif; font-weight: 700; }
+
 
     /* features grid */
     .features-grid {
@@ -266,28 +282,48 @@
     <a href="#steps" class="btn btn-primary">Let's Begin</a>
     <a href="#features" class="btn btn-ghost">Explore Features</a>
   </div>
-</div><div class="section-wrap" id="steps"><p class="section-label">Getting Started</p><h2>Up &amp; Running in 3 Steps</h2><p class="section-sub">From download to your first game — here's exactly how to get started.</p><div class="steps-grid"><div class="step-card">
-  <div class="step-num">01</div>
-  <div class="step-body">
-    <h3>📲 Download &amp; Enter Your Name</h3>
-    <p>Get Chess Master for Kidz from the Play Store — no account or login needed.</p>
-    <ul><li>Search "Chess Master for Kidz" on Play Store</li><li>Tap Install → Open</li><li>Enter your child's player name</li><li>DR greets you personally from that point on</li><li>No email, no sign-in, no permissions required</li></ul>
+</div><div class="section-wrap" id="steps"><p class="section-label">Getting Started</p><h2>Up &amp; Running in 3 Steps</h2><p class="section-sub">From download to your first game — here's exactly how to get started.</p>
+  <div class="steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">📲</div>
+      <h3>Download &amp; Enter Name</h3>
+      <p>Get Chess Master for Kidz from the Play Store — no account or login needed.</p>
+      <ul>
+        <li>Search "Chess Master for Kidz" on Play Store</li>
+        <li>Tap Install → Open and enter your child's player name</li>
+        <li>DR greets your child warmly from that point on</li>
+        <li>No email, no sign-in, zero privacy friction</li>
+      </ul>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">🎯</div>
+      <h3>Choose Your Level</h3>
+      <p>DR adapts to your child's ability. Start at Beginner and level up as confidence grows.</p>
+      <ul>
+        <li>Tap Settings → Difficulty (5 levels from Beginner to GM)</li>
+        <li>Beginner plays casually — perfect for first-timers</li>
+        <li>Level up anytime as board vision improves</li>
+        <li>DR always encourages — never frustrates</li>
+      </ul>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">♟️</div>
+      <h3>Start Playing &amp; Solving</h3>
+      <p>Jump into a game against DR, solve puzzles, or explore openings — all fully offline.</p>
+      <ul>
+        <li>Tap Play to start an interactive game against DR</li>
+        <li>Visit Puzzles for 259 daily tactical challenges</li>
+        <li>Earn rating points and unlock piece avatars (Pawn to King)</li>
+        <li>Set daily screen time limits in Parental Controls</li>
+      </ul>
+    </div>
   </div>
-</div><div class="step-card">
-  <div class="step-num">02</div>
-  <div class="step-body">
-    <h3>🎯 Choose Your Level</h3>
-    <p>DR adapts to your child's ability. Start at Beginner and level up as confidence grows.</p>
-    <ul><li>Tap Settings → Difficulty</li><li>5 levels: Beginner, Intermediate, Advanced, Expert, Grandmaster</li><li>Beginner plays very randomly — perfect for first-timers</li><li>Level up anytime from Settings</li><li>DR always encourages — never frustrates</li></ul>
-  </div>
-</div><div class="step-card">
-  <div class="step-num">03</div>
-  <div class="step-body">
-    <h3>♟️ Start Playing &amp; Solving</h3>
-    <p>Jump into a game against DR, solve puzzles, or explore openings — all fully offline.</p>
-    <ul><li>Tap Play to start a game against DR</li><li>Visit Puzzles for daily tactical challenges</li><li>Earn rating points with every win and puzzle solved</li><li>Unlock new avatars as you improve</li><li>Set daily time limits in Settings → Parental Controls</li></ul>
-  </div>
-</div></div></div><hr class="divider"/><div class="section-wrap" id="features"><p class="section-label">Feature Guide</p><h2>Know Your Tools</h2><div class="features-grid"><div class="feature-card">
+</div><hr class="divider"/><div class="section-wrap" id="features"><p class="section-label">Feature Guide</p><h2>Know Your Tools</h2><div class="features-grid"><div class="feature-card">
   <div class="feature-icon">🤖</div>
   <div class="feature-tag">AI Opponent</div>
   <h3>DR — Your Chess Guide</h3>
@@ -317,7 +353,23 @@
   <div class="feature-tag">Gameplay</div>
   <h3>Game Review</h3>
   <p>Replay any game move-by-move after it ends. DR highlights key turning points to help your child learn.</p><ul><li>Full move-by-move board replay</li><li>DR highlights critical moments</li><li>Great for parents reviewing with kids</li></ul>
-</div></div></div><hr class="divider"/><div class="section-wrap" id="faq"><p class="section-label">FAQ</p><h2>Common Questions</h2><div class="faq-list"><details><summary>Does the app work without internet?</summary><div class="faq-body">Yes — Chess Master for Kidz is 100% offline. All puzzles, lessons, and games are built into the app. No internet connection is ever required.</div></details><details><summary>What age is the app designed for?</summary><div class="faq-body">The app is designed for children aged 6–14. The Beginner level is ideal for first-timers, while Grandmaster difficulty can challenge older, more advanced players.</div></details><details><summary>How does my child's rating work?</summary><div class="faq-body">The rating starts at 500 and adjusts based on game results and puzzle performance. Winning against a tougher DR level earns more points.</div></details><details><summary>How do I set up parental controls?</summary><div class="faq-body">Open Settings → Parental Controls. Set a 4-digit PIN, configure daily screen time limits, and view your child's weekly progress dashboard.</div></details><details><summary>Is there a paid version or in-app purchases?</summary><div class="faq-body">No. Chess Master for Kidz is completely free with no in-app purchases, subscriptions, or advertising of any kind.</div></details></div></div><footer>
+</div></div></div><hr class="divider"/><div class="section-wrap" id="faq"><p class="section-label">FAQ</p><h2>Common Questions</h2><div class="faq-list"><details><summary>Does the app work without internet?</summary><div class="faq-body">Yes — Chess Master for Kidz is 100% offline. All puzzles, lessons, and games are built into the app. No internet connection is ever required.</div></details><details><summary>What age is the app designed for?</summary><div class="faq-body">The app is designed for children aged 6–14. The Beginner level is ideal for first-timers, while Grandmaster difficulty can challenge older, more advanced players.</div></details><details><summary>How does my child's rating work?</summary><div class="faq-body">The rating starts at 500 and adjusts based on game results and puzzle performance. Winning against a tougher DR level earns more points.</div></details><details><summary>How do I set up parental controls?</summary><div class="faq-body">Open Settings → Parental Controls. Set a 4-digit PIN, configure daily screen time limits, and view your child's weekly progress dashboard.</div></details><details><summary>Is there a paid version or in-app purchases?</summary><div class="faq-body">No. Chess Master for Kidz is completely free with no in-app purchases, subscriptions, or advertising of any kind.</div></details></div></div><hr class="divider"/><section class="section-wrap" id="cocreate" style="padding-bottom: 20px;">
+  <div class="cocreate">
+    <p class="cocreate-label">Co-Create the Future</p>
+    <h2>Shape What We Build Next 💡</h2>
+    <p>Chess Master for Kidz is built <em>with</em> young players and parents. Have a puzzle theme, avatar request, or learning mini-game in mind? We'd love to bring it to life.</p>
+    <div class="cocreate-steps">
+      <div class="cocreate-step"><span>01</span> Open the Chess Master app</div>
+      <div class="cocreate-step"><span>→</span></div>
+      <div class="cocreate-step"><span>02</span> Go to Settings</div>
+      <div class="cocreate-step"><span>→</span></div>
+      <div class="cocreate-step"><span>03</span> Tap "Suggest Feature"</div>
+      <div class="cocreate-step"><span>→</span></div>
+      <div class="cocreate-step"><span>04</span> Propose your idea 🚀</div>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:0;">Every proposal is read directly by the Nalkudil Studio team.</p>
+  </div>
+</section><footer>
   <div class="footer-logo"><span style="color:var(--teal)">NALKUDIL</span> <span style="color:var(--gold)">STUDIO</span></div>
   <div class="footer-links">
     <a href="https://nalkudilstudio.github.io">← Studio Home</a>
